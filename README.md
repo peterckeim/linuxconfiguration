@@ -20,15 +20,21 @@ Login with command `ssh -p 2200 -i ~/.ssh/udacity_key.rsa root@52.25.79.87`
 * git  
 
 ###Server Configurations Made  
-* Change SSH from 22 to 2200  in /etc/ssh/sshd_config  
+* Make user `grader` with secure password and give permission to sudo via sudoer.d  
+  * Specifically, wrote `grader ALL=(ALL) ALL` to `grader` file to prompt sudo password  
+* Create key pair on local machine via `ssh-keygen` in git; copy and paste public key to `grader` path ~/.ssh/authorized_keys  
+  * Secure permissions on .ssh directory via `chmod 700 .ssh`  
+  * Secure permissions on authorized_keys via `chmod 644 .ssh/authorized_keys`  
+* In /etc/ssh/sshd_config:  
+  * Change SSH port from 22 to 2200  
+  * Change `EnableRootLogin` to `no`  
 * Restarted SSH service to reset this port  
 * Configure UFW to  
   * `default deny incoming`  
   * `default allow outgoing`  
-  * `allow ssh` (2200)  
-  * `allow www` (80)  
-  * `allow ntp` (123)  
-* Make user grader, and give permission to sudo via sudoer.d  
+  * `allow ssh` (port 2200)  
+  * `allow www` (port 80)  
+  * `allow ntp` (port 123)  
 * Configure local timezone to UTC via `dpkg-reconfigure tzdata`  
 
 ##PostgreSQL Configurations Made  
@@ -55,7 +61,7 @@ application.secret_key = 'Add your secret key'
 ```  
 
 * Give item catalog webapp an apache enabled structure though creating FlaskApp.conf in /etc/apache2/sites-available containing the following code:  
-```apacheconf
+```
 <VirtualHost *:80>
                 ServerName ec2-52-25-79-87.us-west-2.compute.amazonaws.com
                 ServerAdmin tfudacity@gmail.com
