@@ -1,11 +1,11 @@
 # Linux Configuration  
 Linux Server Configuration - Project 5 (Final) of Udacity's Full Stack Nanodegree Program  
 
-* Website: http://ec2-52-25-79-87.us-west-2.compute.amazonaws.com/  
-* IP Address: 52.25.79.87  
+* Website: http://ec2-52-25-79-87.us-west-2.compute.amazonaws.com/ (NOW INVALID - Server removed upon graduation)  
+* IP Address: 52.25.79.87 (NOW INVALID - Server removed upon graduation)
 * SSH port: 2200  
 
-Login with command `ssh -p 2200 -i ~/.ssh/udacity_key.rsa root@52.25.79.87`
+Login with command `ssh -p 2200 -i ~/.ssh/udacity_key.rsa grader@52.25.79.87` (NOW INVALID - Server removed upon graduation)
 
 ###Software Installed  
 * python-pip  
@@ -15,7 +15,7 @@ Login with command `ssh -p 2200 -i ~/.ssh/udacity_key.rsa root@52.25.79.87`
 * sqlalchemy  
 * postgresql  
 * postgresql-contrib  
-* virtualenv (but I ended up not using it - can't wrap my head around it)  
+* virtualenv
 * flask  
 * git  
 
